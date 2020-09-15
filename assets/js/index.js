@@ -26,6 +26,9 @@ function getUserInfo() {
     //   Authorization: localStorage.getItem("token") || "",
     // },
     success: function (res) {
+      if (res.status !== 0) {
+        return layui.layer.msg(res.message);
+      }
       console.log(res);
       renderAvatar(res.data);
     },
