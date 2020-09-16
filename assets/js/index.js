@@ -26,7 +26,10 @@ function getUserInfo() {
     //   Authorization: localStorage.getItem("token") || "",
     // },
     success: function (res) {
-      console.log(res);
+      // console.log(res);
+      if (res.status !== 0) {
+        return layui.layer.msg(res.message);
+      }
       renderAvatar(res.data);
     },
     // 不管请求失败还是成功都会执行的回调函数
